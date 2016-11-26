@@ -44,6 +44,7 @@
     <Compile Include="api\APIResourceConstants.cs" />
     <Compile Include="api\PayeezyRequestOptions.cs" />
     <Compile Include="api\RequestMethod.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="client\MessageLogger.cs" />
     <Compile Include="client\PayeezyAbstractClient.cs" />
     <Compile Include="client\PayeezyClient.cs" />

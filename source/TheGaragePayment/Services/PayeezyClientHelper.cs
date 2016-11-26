@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Configuration;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Configuration;
 using TheGarage.Services.Payment.api;
 using TheGarage.Services.Payment.client;
@@ -22,7 +18,7 @@ namespace TheGarage.Services.Payment
     {
 
         private PayeezyClient payeezyClient;
-        private NameValueCollection appSettings = ConfigurationManager.AppSettings;
+        private NameValueCollection appSettings = WebConfigurationManager.AppSettings;
         //private JSONHelper jsonHelper;
 
         /**
@@ -134,7 +130,7 @@ public PayeezyResponse doGetTokenCall(Dictionary<string, string> queryMap)
  */
 public PayeezyResponse doExchangeRate(TransactionRequest transactionRequest)
 {
-    string URL = properties.getProperty("url")+ APIResourceConstants.EXCHANGE_RATE;
+    string URL = appSettings["url"]+ APIResourceConstants.EXCHANGE_RATE;
     string payload = jsonHelper.getJSONObject(transactionRequest);
     PayeezyResponse payeezyResponse = payeezyClient.execute(URL, RequestMethod.POST, getRequestOptions(),payload );
         return payeezyResponse;

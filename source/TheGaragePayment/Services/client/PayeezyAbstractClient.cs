@@ -16,6 +16,7 @@
 using System.Collections.Generic;
 using System.Text;
 using TheGarage.Services.Payment.api;
+using TheGarage.Services.Payment.models.transaction;
 /**
 * Base client class that provides helper methods to calculate
 * authorization headers and request options
@@ -23,7 +24,7 @@ using TheGarage.Services.Payment.api;
 public abstract class PayeezyAbstractClient
 {
 
-    protected Dictionary<string, string> getSecurityKeys(String payLoad, PayeezyRequestOptions requestOptions) throws Exception
+    protected Dictionary<string, string> getSecurityKeys(string payLoad, PayeezyRequestOptions requestOptions)
     {
         Dictionary<string, string> returnMap =new Dictionary<string, string>();
         if(requestOptions == null){
@@ -31,7 +32,7 @@ public abstract class PayeezyAbstractClient
 }
         try {
             long nonce = Math.abs(SecureRandom.getInstance("SHA1PRNG").nextLong());
-returnMap.put(APIResourceConstants.SecurityConstants.NONCE, Long.toString(nonce));
+returnMap.put(APIResourceConstants.SecurityConstants.NONCE, Long.ToString(nonce));
             returnMap.put(APIResourceConstants.SecurityConstants.APIKEY, requestOptions.getApiKey());
             returnMap.put(APIResourceConstants.SecurityConstants.TIMESTAMP, Long.toString(System.currentTimeMillis()));
             returnMap.put(APIResourceConstants.SecurityConstants.TOKEN, requestOptions.getToken());
@@ -51,7 +52,7 @@ returnMap.put(APIResourceConstants.SecurityConstants.NONCE, Long.toString(nonce)
      * @return
      * @throws Exception
      */
-    private string getMacValue(Map<String, String> data) throws Exception
+    private string getMacValue(Map<String, String> data)
 {
     Mac mac=Mac.getInstance("HmacSHA256");
     String apiSecret= data.get(APIResourceConstants.SecurityConstants.APISECRET);
@@ -75,7 +76,7 @@ returnMap.put(APIResourceConstants.SecurityConstants.NONCE, Long.toString(nonce)
     {
         buff.append(payload);
     }
-    String bufferData = buff.toString();
+    string bufferData = buff.toString();
     //MessageLogger.logMessage(String.format(bufferData));
     byte[] macHash = mac.doFinal(bufferData.getBytes("UTF-8"));
     //MessageLogger.logMessage(Integer.toString(macHash.length));
@@ -92,7 +93,7 @@ returnMap.put(APIResourceConstants.SecurityConstants.NONCE, Long.toString(nonce)
      */
     private byte[] toHex(byte[] arr)
 {
-    String hex = byteArrayToHex(arr);
+    string hex = byteArrayToHex(arr);
     return hex.getBytes();
 }
 
@@ -104,8 +105,8 @@ private string byteArrayToHex(byte[] a)
     return sb.ToString();
 }
 
-protected abstract PayeezyResponse executePostRequest(string uri, string payload, PayeezyRequestOptions requestOptions) throws Exception;
+    protected abstract PayeezyResponse executePostRequest(string uri, string payload, PayeezyRequestOptions requestOptions);
 
-protected abstract PayeezyResponse executeGetRequest(string uri, Dictionary<string, string> queryParams) throws Exception;
+    protected abstract PayeezyResponse executeGetRequest(string uri, Dictionary<string, string> queryParams);
 
 }

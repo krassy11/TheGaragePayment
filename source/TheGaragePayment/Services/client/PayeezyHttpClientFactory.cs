@@ -70,7 +70,7 @@ public class PayeezyHttpClientFactory
             // set proxy
             string proxyUrl = appSettings["proxyHost"];
             //String proxyUrl = properties.getProperty("proxyHost");
-            boolean proxyURLProvided = StringUtils.isNotEmpty(proxyUrl);
+            bool proxyURLProvided = StringUtils.isNotEmpty(proxyUrl);
             if (!proxyURLProvided)
             {
                 System.out.println("No Proxy URL Set");
