@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A8CEABEC-0481-4380-8081-3A8B010ECB30}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheGarage.Services.Payment</RootNamespace>
+    <AssemblyName>TheGarage.Services.Payment</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="api\APIResourceConstants.cs" />
+    <Compile Include="api\PayeezyRequestOptions.cs" />
+    <Compile Include="api\RequestMethod.cs" />
+    <Compile Include="client\MessageLogger.cs" />
+    <Compile Include="client\PayeezyAbstractClient.cs" />
+    <Compile Include="client\PayeezyClient.cs" />
+    <Compile Include="client\PayeezyClientSetup.cs" />
+    <Compile Include="client\PayeezyConfiguration.cs" />
+    <Compile Include="client\PayeezyHttpClientFactory.cs" />
+    <Compile Include="JSONHelper.cs" />
+    <Compile Include="models\enrollment\Address.cs" />
+    <Compile Include="models\enrollment\BAARequest.cs" />
+    <Compile Include="models\enrollment\ConnectPayTokenRequest.cs" />
+    <Compile Include="models\enrollment\ConnectPayTokenResponse.cs" />
+    <Compile Include="models\enrollment\EnrollmentApp.cs" />
+    <Compile Include="models\enrollment\EnrollmentRequest.cs" />
+    <Compile Include="PayeezyClientHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="models\exception\ApplicationRuntimeException.cs" />
+    <Compile Include="models\exception\ClientErrorRuntimeException.cs" />
+    <Compile Include="models\exception\Error.cs" />
+    <Compile Include="models\exception\Messages.cs" />
+    <Compile Include="models\transaction\AdditionalShippingInfo.cs" />
+    <Compile Include="models\transaction\Address.cs" />
+    <Compile Include="models\transaction\AddressType.cs" />
+    <Compile Include="models\transaction\BaseMembership.cs" />
+    <Compile Include="models\transaction\Card.cs" />
+    <Compile Include="models\transaction\CommonResponse.cs" />
+    <Compile Include="models\transaction\ConnectPay.cs" />
+    <Compile Include="models\transaction\Contact.cs" />
+    <Compile Include="models\transaction\CouponDetails.cs" />
+    <Compile Include="models\transaction\CurrencyConversionResponse.cs" />
+    <Compile Include="models\transaction\Customer.cs" />
+    <Compile Include="models\transaction\CustomerType.cs" />
+    <Compile Include="models\transaction\DebitCard.cs" />
+    <Compile Include="models\transaction\FraudScoreResponse.cs" />
+    <Compile Include="models\transaction\GiftRegistry.cs" />
+    <Compile Include="models\transaction\Level2Properties.cs" />
+    <Compile Include="models\transaction\Level3Properties.cs" />
+    <Compile Include="models\transaction\LineItem.cs" />
+    <Compile Include="models\transaction\Loyalty.cs" />
+    <Compile Include="models\transaction\Member.cs" />
+    <Compile Include="models\transaction\OrderDetails.cs" />
+    <Compile Include="models\transaction\OriginalDetails.cs" />
+    <Compile Include="models\transaction\PayeezyResponse.cs" />
+    <Compile Include="models\transaction\PaymentMethod.cs" />
+    <Compile Include="models\transaction\PaypalTransactionDetail.cs" />
+    <Compile Include="models\transaction\Phone.cs" />
+    <Compile Include="models\transaction\RateReference.cs" />
+    <Compile Include="models\transaction\ShippingDetails.cs" />
+    <Compile Include="models\transaction\ShipToAddress.cs" />
+    <Compile Include="models\transaction\SoftDescriptor.cs" />
+    <Compile Include="models\transaction\TeleCheck.cs" />
+    <Compile Include="models\transaction\ThreeDomainSecureHeader.cs" />
+    <Compile Include="models\transaction\ThreeDomainSecureToken.cs" />
+    <Compile Include="models\transaction\Token.cs" />
+    <Compile Include="models\transaction\TokenResponse.cs" />
+    <Compile Include="models\transaction\TokenType.cs" />
+    <Compile Include="models\transaction\TransactionRequest.cs" />
+    <Compile Include="models\transaction\TransactionRequestOld.cs" />
+    <Compile Include="models\transaction\TransactionRequestOrigin.cs" />
+    <Compile Include="models\transaction\TransactionResponse.cs" />
+    <Compile Include="models\transaction\TransactionType.cs" />
+    <Compile Include="models\transaction\Transarmor.cs" />
+    <Compile Include="models\transaction\ValueLink.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
