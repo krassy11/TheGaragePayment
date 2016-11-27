@@ -6,3 +6,4 @@ C:\Users\Admin\Desktop\newPay\obj\Debug\TheGarage.Services.Payment.csprojResolve
 C:\Users\Admin\Desktop\newPay\obj\Debug\TheGarage.Services.Payment.dll
 C:\Users\Admin\Desktop\newPay\obj\Debug\TheGarage.Services.Payment.pdb
 D:\Source\Repos\TheGaragePayment\source\TheGaragePayment\Services\obj\Debug\TheGarage.Services.Payment.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Source\Repos\TheGaragePayment\source\TheGaragePayment\Services\obj\Debug\TheGarage.Services.Payment.csprojResolveAssemblyReference.cache

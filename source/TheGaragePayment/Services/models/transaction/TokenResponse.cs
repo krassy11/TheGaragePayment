@@ -1,69 +1,59 @@
-//package com.firstdata.payeezy.models.transaction;
+public class TokenResponse : CommonResponse
+{
+    public TokenResponse()
+        : base()
+    {
+        //super();
+    }
+    private string type;
 
-//import com.fasterxml.jackson.annotation.JsonAutoDetect;
-//import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
-//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-//import com.fasterxml.jackson.annotation.JsonInclude;
-//import com.fasterxml.jackson.annotation.JsonInclude.Include;
-//import com.fasterxml.jackson.annotation.JsonProperty;
+    private string transactionId;
 
-//@JsonAutoDetect(getterVisibility = Visibility.DEFAULT, setterVisibility = Visibility.DEFAULT, fieldVisibility = Visibility.ANY)
-//@JsonIgnoreProperties(ignoreUnknown = true)
-//@JsonInclude(Include.NON_NULL)
-//public class TokenResponse extends CommonResponse {
+    private string transactionTag;
 
-//	public TokenResponse() {
-//		super();
-//	}
+    private string avs;
 
-//	@JsonProperty("type")
-//	private String type;
+    private Transarmor token;
 
-//	@JsonProperty("transaction_id")
-//	private String transactionId;
+    private Card card;
 
-//	@JsonProperty("transaction_tag")
-//	private String transactionTag;
+    public string getType()
+    {
+        return type;
+    }
 
-//	@JsonProperty("avs")
-//	private String avs;
+    public void setType(string type)
+    {
+        this.type = type;
+    }
 
-//	@JsonProperty("token")
-//	private Transarmor token;
+    public Transarmor getToken()
+    {
+        return token;
+    }
 
-//	@JsonProperty("card")
-//	private Card card;
+    public void setToken(Transarmor token)
+    {
+        this.token = token;
+    }
 
-//	public String getType() {
-//		return type;
-//	}
+    public Card getCard()
+    {
+        return card;
+    }
 
-//	public void setType(String type) {
-//		this.type = type;
-//	}
+    public void setCard(Card card)
+    {
+        this.card = card;
+    }
 
-//	public Transarmor getToken() {
-//		return token;
-//	}
+    public string getAvs()
+    {
+        return avs;
+    }
 
-//	public void setToken(Transarmor token) {
-//		this.token = token;
-//	}
-
-//	public Card getCard() {
-//		return card;
-//	}
-
-//	public void setCard(Card card) {
-//		this.card = card;
-//	}
-
-//	public String getAvs() {
-//		return avs;
-//	}
-
-//	public void setAvs(String avs) {
-//		this.avs = avs;
-//	}
-
-//}
+    public void setAvs(string avs)
+    {
+        this.avs = avs;
+    }
+}

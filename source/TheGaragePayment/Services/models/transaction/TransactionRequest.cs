@@ -15,9 +15,6 @@
  *
  */
 
-@JsonAutoDetect(getterVisibility= Visibility.DEFAULT, setterVisibility= Visibility.DEFAULT, fieldVisibility= Visibility.ANY)
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(Include.NON_EMPTY)
 public class TransactionRequest
 {
 
@@ -26,288 +23,251 @@ public class TransactionRequest
     }
 
 
-    @JsonProperty("rate_type")
 
     private string type;
 
     private string bin;
 
 
-    @JsonProperty("transaction_type")
 
     private string transactionType;
 
 
-    @JsonProperty("merchant_ref")
 
     private string referenceNo;
 
 
-    @JsonProperty("mcc")
 
-    private String mcc;
-
-
-    @JsonProperty("method")
+    private string mcc;
 
     private string paymentMethod;
 
-    @JsonProperty("amount")
-
     private string amount;
 
-    @JsonProperty("currency_code")
-
-    private String currency;
-
-    @JsonProperty("transaction_tag")
+    private string currency;
 
     private string transactionTag;
 
-
-    @JsonProperty("credit_card")
-
     private Card card;
-
-    @JsonProperty("token")
 
     private Token token;
 
-    @JsonProperty("billing_address")
+    //private Address billing;
 
-    private Address billing;
+    //private string splitTenderId;
 
+    //private SoftDescriptor descriptor;
 
-    @JsonProperty("split_tender_id")
+    //private string splitShipment;
 
-    private String splitTenderId;
+    //private ThreeDomainSecureToken threeDomainSecureToken;
 
+    //private string eciIndicator;
 
-    @JsonProperty("soft_descriptors")
-
-    private SoftDescriptor descriptor;
-
-
-    @JsonProperty("split_shipment")
-    private String splitShipment;
+    //private Level2Properties level2Properties;
 
 
-    @JsonProperty("3DS")
-
-    private ThreeDomainSecureToken threeDomainSecureToken;
-
-
-    @JsonProperty("eci_indicator")
-    private String eciIndicator;
+    //@JsonProperty("level3")
+    //private Level3Properties level3Properties;
 
 
-    @JsonProperty("level2")
-    private Level2Properties level2Properties;
-
-
-    @JsonProperty("level3")
-    private Level3Properties level3Properties;
-
-
-    @JsonProperty("paypal_transaction_details")
-    private PaypalTransactionDetail paypal;
+    //@JsonProperty("paypal_transaction_details")
+    //private PaypalTransactionDetail paypal;
 
 
 
-    @JsonProperty("tele_check")
+    //@JsonProperty("tele_check")
 
-    private TeleCheck teleCheck;
-
-
-    @JsonProperty("valuelink")
-    private ValueLink valuelink;
+    //private TeleCheck teleCheck;
 
 
-
-    @JsonProperty("direct_debit")
-    private DebitCard debitCard;
-
-
-    @JsonProperty("recurring_id")
-    private String recurringId;
-
-    // pass thru value for split tenders
-    @JsonProperty("partial_redemption")
-
-    private String partialRedemption;
-
-    @JsonProperty("recurring")
-    private Boolean recurring = Boolean.FALSE;
+    //@JsonProperty("valuelink")
+    //private ValueLink valuelink;
 
 
-    @JsonProperty("request_origin")
+
+    //@JsonProperty("direct_debit")
+    //private DebitCard debitCard;
+
+    private string recurringId;
+
+    //// pass thru value for split tenders
+    //@JsonProperty("partial_redemption")
+
+    //private String partialRedemption;
+
+    private bool recurring = false;
+
+
+    //@JsonProperty("request_origin")
 
     private TransactionRequestOrigin requestOrigin;
 
-    private String origin;
+    //private String origin;
 
 
-    @JsonProperty("coupon")
+    //@JsonProperty("coupon")
 
-    private CouponDetails couponDetails;
-
-
-    @JsonProperty("loyalty")
-
-    private Loyalty loyaltyDetails;
+    //private CouponDetails couponDetails;
 
 
-    @JsonProperty("member")
+    //@JsonProperty("loyalty")
 
-    private Member memberDetails;
-
-
-    @JsonProperty("order_details")
-
-    private OrderDetails orderDetails;
+    //private Loyalty loyaltyDetails;
 
 
-    @JsonProperty("sales_rep")
+    //@JsonProperty("member")
 
-    private String salesRep;
-
-
-    @JsonProperty("sales_ref_code")
-
-    private String refCode;
+    //private Member memberDetails;
 
 
-    @JsonProperty("gift_message")
+    //@JsonProperty("order_details")
 
-    private String giftMessage;
-
-
-    @JsonProperty("sales_channel")
-
-    private String salesChannel;
+    //private OrderDetails orderDetails;
 
 
-    @JsonProperty("gift_registry")
+    //@JsonProperty("sales_rep")
 
-    private GiftRegistry giftRegistry;
-
-
-    @JsonProperty("rate_reference")
-
-    private RateReference rateReference;
+    //private String salesRep;
 
 
-    @JsonProperty("original_details")
+    //@JsonProperty("sales_ref_code")
 
-    private OriginalDetails originalDetails;
-
-
-    @JsonProperty("reversal_id")
-
-    private String reversalId;
+    private string refCode;
 
 
-    @JsonProperty("post_date")
+    //@JsonProperty("gift_message")
 
-    private String postDate;
-
-
-    @JsonProperty("gift_deposit_available")
-
-    private String giftDepositAvailable;
+    //private String giftMessage;
 
 
-    @JsonProperty("additional_shipping_details")
+    //@JsonProperty("sales_channel")
 
-    private AdditionalShippingInfo additionalShipping;
-
-
-    @JsonProperty("reference_3")
-
-    private String reference3;
+    //private String salesChannel;
 
 
-    @JsonProperty("user_name")
+    //@JsonProperty("gift_registry")
 
-    private String userName;
+    //private GiftRegistry giftRegistry;
 
 
-    @JsonProperty("connect_pay")
+    //@JsonProperty("rate_reference")
 
-    private ConnectPay connectPay;
+    //private RateReference rateReference;
 
-    @JsonIgnore
-    private boolean internalTransaction;
 
-    public String getTransactionType()
+    //@JsonProperty("original_details")
+
+    //private OriginalDetails originalDetails;
+
+
+    //@JsonProperty("reversal_id")
+
+    //private String reversalId;
+
+
+    //@JsonProperty("post_date")
+
+    //private String postDate;
+
+
+    //@JsonProperty("gift_deposit_available")
+
+    //private String giftDepositAvailable;
+
+
+    //@JsonProperty("additional_shipping_details")
+
+    //private AdditionalShippingInfo additionalShipping;
+
+
+    //@JsonProperty("reference_3")
+
+    //private String reference3;
+
+
+    //@JsonProperty("user_name")
+
+    private string userName;
+
+
+    //@JsonProperty("connect_pay")
+
+    //private ConnectPay connectPay;
+
+    //@JsonIgnore
+    //private boolean internalTransaction;
+
+    public string getTransactionType()
     {
-        return (transactionType != null ? transactionType.toLowerCase() : null);
+        return (transactionType != null ? transactionType.ToLower() : null);
     }
 
-    public void setTransactionType(String transactionType)
+    public void setTransactionType(string transactionType)
     {
         this.transactionType = transactionType;
     }
 
-    public ThreeDomainSecureToken getThreeDomainSecureToken()
-    {
-        return threeDomainSecureToken;
-    }
-    public void setThreeDomainSecureToken(ThreeDomainSecureToken threeDomainSecureToken)
-    {
-        this.threeDomainSecureToken = threeDomainSecureToken;
-    }
+    //public ThreeDomainSecureToken getThreeDomainSecureToken()
+    //{
+    //    return threeDomainSecureToken;
+    //}
+    //public void setThreeDomainSecureToken(ThreeDomainSecureToken threeDomainSecureToken)
+    //{
+    //    this.threeDomainSecureToken = threeDomainSecureToken;
+    //}
 
-    public SoftDescriptor getDescriptor()
-    {
-        return descriptor;
-    }
-    public void setDescriptor(SoftDescriptor descriptor)
-    {
-        this.descriptor = descriptor;
-    }
-    public String getReferenceNo()
+    //public SoftDescriptor getDescriptor()
+    //{
+    //    return descriptor;
+    //}
+    //public void setDescriptor(SoftDescriptor descriptor)
+    //{
+    //    this.descriptor = descriptor;
+    //}
+
+    public string getReferenceNo()
     {
         return referenceNo;
     }
-    public void setReferenceNo(String referenceNo)
+    public void setReferenceNo(string referenceNo)
     {
         this.referenceNo = referenceNo;
     }
 
-    public String getPaymentMethod()
+    public string getPaymentMethod()
     {
-        return (paymentMethod != null ? paymentMethod.toLowerCase() : null);
+        return (paymentMethod != null ? paymentMethod.ToLower() : null);
     }
 
-    public void setPaymentMethod(String paymentMethod)
+    public void setPaymentMethod(string paymentMethod)
     {
         this.paymentMethod = paymentMethod;
     }
 
-    public String getAmount()
+    public string getAmount()
     {
         return amount;
     }
-    public void setAmount(String amount)
+    public void setAmount(string amount)
     {
         this.amount = amount;
     }
 
-    public String getCurrency()
+    public string getCurrency()
     {
         return currency;
     }
-    public void setCurrency(String currency)
+    public void setCurrency(string currency)
     {
         this.currency = currency;
     }
 
-    public String getTransactionTag()
+    public string getTransactionTag()
     {
         return transactionTag;
     }
-    public void setTransactionTag(String transactionTag)
+    public void setTransactionTag(string transactionTag)
     {
         this.transactionTag = transactionTag;
     }
@@ -330,240 +290,240 @@ public class TransactionRequest
         this.token = token;
     }
 
-    public Address getBilling()
-    {
-        return billing;
-    }
-    public void setBilling(Address billing)
-    {
-        this.billing = billing;
-    }
+    //public Address getBilling()
+    //{
+    //    return billing;
+    //}
+    //public void setBilling(Address billing)
+    //{
+    //    this.billing = billing;
+    //}
 
-    public String getSplitShipment()
-    {
-        return splitShipment;
-    }
-    public void setSplitShipment(String splitShipment)
-    {
-        this.splitShipment = splitShipment;
-    }
+    //public String getSplitShipment()
+    //{
+    //    return splitShipment;
+    //}
+    //public void setSplitShipment(String splitShipment)
+    //{
+    //    this.splitShipment = splitShipment;
+    //}
 
-    public String getEciIndicator()
-    {
-        return eciIndicator;
-    }
+    //public String getEciIndicator()
+    //{
+    //    return eciIndicator;
+    //}
 
-    public void setEciIndicator(String eciIndicator)
-    {
-        this.eciIndicator = eciIndicator;
-    }
+    //public void setEciIndicator(String eciIndicator)
+    //{
+    //    this.eciIndicator = eciIndicator;
+    //}
 
-    public Level2Properties getLevel2Properties()
-    {
-        return level2Properties;
-    }
+    //public Level2Properties getLevel2Properties()
+    //{
+    //    return level2Properties;
+    //}
 
-    public void setLevel2Properties(Level2Properties level2Properties)
-    {
-        this.level2Properties = level2Properties;
-    }
+    //public void setLevel2Properties(Level2Properties level2Properties)
+    //{
+    //    this.level2Properties = level2Properties;
+    //}
 
-    public Level3Properties getLevel3Properties()
-    {
-        return level3Properties;
-    }
+    //public Level3Properties getLevel3Properties()
+    //{
+    //    return level3Properties;
+    //}
 
-    public void setLevel3Properties(Level3Properties level3Properties)
-    {
-        this.level3Properties = level3Properties;
-    }
+    //public void setLevel3Properties(Level3Properties level3Properties)
+    //{
+    //    this.level3Properties = level3Properties;
+    //}
 
-    public PaypalTransactionDetail getPaypal()
-    {
-        return paypal;
-    }
+    //public PaypalTransactionDetail getPaypal()
+    //{
+    //    return paypal;
+    //}
 
-    public void setPaypal(PaypalTransactionDetail paypal)
-    {
-        this.paypal = paypal;
-    }
+    //public void setPaypal(PaypalTransactionDetail paypal)
+    //{
+    //    this.paypal = paypal;
+    //}
 
 
     /**
 	 * @return the teleCheck
 	 */
-    public TeleCheck getTeleCheck()
-    {
-        return teleCheck;
-    }
-    /**
-	 * @param teleCheck the teleCheck to set
-	 */
-    public void setTeleCheck(TeleCheck teleCheck)
-    {
-        this.teleCheck = teleCheck;
-    }
-    public String getSplitTenderId()
-    {
-        return splitTenderId;
-    }
-    public void setSplitTenderId(String splitTenderId)
-    {
-        this.splitTenderId = splitTenderId;
-    }
-    public ValueLink getValuelink()
-    {
-        return valuelink;
-    }
-    public void setValuelink(ValueLink valuelink)
-    {
-        this.valuelink = valuelink;
-    }
-    public String getOrigin()
-    {
-        return origin;
-    }
-    public void setOrigin(String origin)
-    {
-        this.origin = origin;
-    }
+  //  public TeleCheck getTeleCheck()
+  //  {
+  //      return teleCheck;
+  //  }
+  //  /**
+	 //* @param teleCheck the teleCheck to set
+	 //*/
+  //  public void setTeleCheck(TeleCheck teleCheck)
+  //  {
+  //      this.teleCheck = teleCheck;
+  //  }
+  //  public String getSplitTenderId()
+  //  {
+  //      return splitTenderId;
+  //  }
+  //  public void setSplitTenderId(String splitTenderId)
+  //  {
+  //      this.splitTenderId = splitTenderId;
+  //  }
+  //  public ValueLink getValuelink()
+  //  {
+  //      return valuelink;
+  //  }
+  //  public void setValuelink(ValueLink valuelink)
+  //  {
+  //      this.valuelink = valuelink;
+  //  }
+  //  public String getOrigin()
+  //  {
+  //      return origin;
+  //  }
+  //  public void setOrigin(String origin)
+  //  {
+  //      this.origin = origin;
+  //  }
 
-    /**
-	 * @return the debitCard
-	 */
-    public DebitCard getDebitCard()
-    {
-        return debitCard;
-    }
+  //  /**
+	 //* @return the debitCard
+	 //*/
+  //  public DebitCard getDebitCard()
+  //  {
+  //      return debitCard;
+  //  }
 
-    /**
-	 * @param debitCard the debitCard to set
-	 */
-    public void setDebitCard(DebitCard debitCard)
-    {
-        this.debitCard = debitCard;
-    }
+  //  /**
+	 //* @param debitCard the debitCard to set
+	 //*/
+  //  public void setDebitCard(DebitCard debitCard)
+  //  {
+  //      this.debitCard = debitCard;
+  //  }
 
     /**
 	 * @return the recurringId
 	 */
-    public String getRecurringId()
+    public string getRecurringId()
     {
         return recurringId;
     }
     /**
 	 * @param recurringId the recurringId to set
 	 */
-    public void setRecurringId(String recurringId)
+    public void setRecurringId(string recurringId)
     {
         this.recurringId = recurringId;
     }
 
-    public String getPartialRedemption()
-    {
-        return partialRedemption;
-    }
-    public void setPartialRedemption(String partialRedemption)
-    {
-        this.partialRedemption = partialRedemption;
-    }
-    /**
-	 * @return the recurring
-	 */
-    @JsonIgnore
-    public boolean isRecurring()
+  //  public String getPartialRedemption()
+  //  {
+  //      return partialRedemption;
+  //  }
+  //  public void setPartialRedemption(String partialRedemption)
+  //  {
+  //      this.partialRedemption = partialRedemption;
+  //  }
+  //  /**
+	 //* @return the recurring
+	 //*/
+  //  @JsonIgnore
+    public bool isRecurring()
     {
         return recurring;
     }
     /**
 	 * @param recurring the recurring to set
 	 */
-    public void setRecurring(Boolean recurring)
+    public void setRecurring(bool recurring)
     {
         this.recurring = recurring;
     }
 
 
-    @JsonProperty("customer")
+   
 
-    private Customer customer;
+    //private Customer customer;
 
-    public Customer getCustomer()
-    {
-        return customer;
-    }
+    //public Customer getCustomer()
+    //{
+    //    return customer;
+    //}
 
-    public void setCustomer(Customer customer)
-    {
-        this.customer = customer;
-    }
+    //public void setCustomer(Customer customer)
+    //{
+    //    this.customer = customer;
+    //}
 
-    public CouponDetails getCouponDetails()
-    {
-        return couponDetails;
-    }
+    //public CouponDetails getCouponDetails()
+    //{
+    //    return couponDetails;
+    //}
 
-    public void setCouponDetails(CouponDetails couponDetails)
-    {
-        this.couponDetails = couponDetails;
-    }
+    //public void setCouponDetails(CouponDetails couponDetails)
+    //{
+    //    this.couponDetails = couponDetails;
+    //}
 
-    public Loyalty getLoyaltyDetails()
-    {
-        return loyaltyDetails;
-    }
+    //public Loyalty getLoyaltyDetails()
+    //{
+    //    return loyaltyDetails;
+    //}
 
-    public void setLoyaltyDetails(Loyalty loyaltyDetails)
-    {
-        this.loyaltyDetails = loyaltyDetails;
-    }
+    //public void setLoyaltyDetails(Loyalty loyaltyDetails)
+    //{
+    //    this.loyaltyDetails = loyaltyDetails;
+    //}
 
-    public Member getMemberDetails()
-    {
-        return memberDetails;
-    }
+    //public Member getMemberDetails()
+    //{
+    //    return memberDetails;
+    //}
 
-    public void setMemberDetails(Member memberDetails)
-    {
-        this.memberDetails = memberDetails;
-    }
+    //public void setMemberDetails(Member memberDetails)
+    //{
+    //    this.memberDetails = memberDetails;
+    //}
 
-    public OrderDetails getOrderDetails()
-    {
-        return orderDetails;
-    }
+    //public OrderDetails getOrderDetails()
+    //{
+    //    return orderDetails;
+    //}
 
-    public void setOrderDetails(OrderDetails orderDetails)
-    {
-        this.orderDetails = orderDetails;
-    }
+    //public void setOrderDetails(OrderDetails orderDetails)
+    //{
+    //    this.orderDetails = orderDetails;
+    //}
 
-    public String getSalesRep()
-    {
-        return salesRep;
-    }
+    //public String getSalesRep()
+    //{
+    //    return salesRep;
+    //}
 
-    public void setSalesRep(String salesRep)
-    {
-        this.salesRep = salesRep;
-    }
+    //public void setSalesRep(String salesRep)
+    //{
+    //    this.salesRep = salesRep;
+    //}
 
-    public String getGiftMessage()
-    {
-        return giftMessage;
-    }
+    //public String getGiftMessage()
+    //{
+    //    return giftMessage;
+    //}
 
-    public void setGiftMessage(String giftMessage)
-    {
-        this.giftMessage = giftMessage;
-    }
+    //public void setGiftMessage(String giftMessage)
+    //{
+    //    this.giftMessage = giftMessage;
+    //}
 
-    public String getRefCode()
+    public string getRefCode()
     {
         return refCode;
     }
 
-    public void setRefCode(String refCode)
+    public void setRefCode(string refCode)
     {
         this.refCode = refCode;
     }
@@ -578,108 +538,108 @@ public class TransactionRequest
         this.requestOrigin = requestOrigin;
     }
 
-    public String getSalesChannel()
-    {
-        return salesChannel;
-    }
+  //  public String getSalesChannel()
+  //  {
+  //      return salesChannel;
+  //  }
 
-    public void setSalesChannel(String salesChannel)
-    {
-        this.salesChannel = salesChannel;
-    }
+  //  public void setSalesChannel(String salesChannel)
+  //  {
+  //      this.salesChannel = salesChannel;
+  //  }
 
-    public GiftRegistry getGiftRegistry()
-    {
-        return giftRegistry;
-    }
+  //  public GiftRegistry getGiftRegistry()
+  //  {
+  //      return giftRegistry;
+  //  }
 
-    public void setGiftRegistry(GiftRegistry giftRegistry)
-    {
-        this.giftRegistry = giftRegistry;
-    }
+  //  public void setGiftRegistry(GiftRegistry giftRegistry)
+  //  {
+  //      this.giftRegistry = giftRegistry;
+  //  }
 
-    public RateReference getRateReference()
-    {
-        return rateReference;
-    }
+  //  public RateReference getRateReference()
+  //  {
+  //      return rateReference;
+  //  }
 
-    public void setRateReference(RateReference rateReference)
-    {
-        this.rateReference = rateReference;
-    }
+  //  public void setRateReference(RateReference rateReference)
+  //  {
+  //      this.rateReference = rateReference;
+  //  }
 
-    /**
-	 * @return the reversalId
-	 */
-    public String getReversalId()
-    {
-        return reversalId;
-    }
-    /**
-	 * @param reversalId the reversalId to set
-	 */
-    public void setReversalId(String reversalId)
-    {
-        this.reversalId = reversalId;
-    }
-    public OriginalDetails getOriginalDetails()
-    {
-        return originalDetails;
-    }
-    public void setOriginalDetails(OriginalDetails originalDetails)
-    {
-        this.originalDetails = originalDetails;
-    }
+  //  /**
+	 //* @return the reversalId
+	 //*/
+  //  public String getReversalId()
+  //  {
+  //      return reversalId;
+  //  }
+  //  /**
+	 //* @param reversalId the reversalId to set
+	 //*/
+  //  public void setReversalId(String reversalId)
+  //  {
+  //      this.reversalId = reversalId;
+  //  }
+    //public OriginalDetails getOriginalDetails()
+    //{
+    //    return originalDetails;
+    //}
+    //public void setOriginalDetails(OriginalDetails originalDetails)
+    //{
+    //    this.originalDetails = originalDetails;
+    //}
 
-    public bool isInternalTransaction()
-    {
-        return internalTransaction;
-    }
+    //public bool isInternalTransaction()
+    //{
+    //    return internalTransaction;
+    //}
 
-    public void setInternalTransaction(bool internalTransacion)
-    {
-        this.internalTransaction = internalTransacion;
-    }
+    //public void setInternalTransaction(bool internalTransacion)
+    //{
+    //    this.internalTransaction = internalTransacion;
+    //}
 
-    public string getPostDate()
-    {
-        return postDate;
-    }
+    //public string getPostDate()
+    //{
+    //    return postDate;
+    //}
 
-    public void setPostDate(string postDate)
-    {
-        this.postDate = postDate;
-    }
+    //public void setPostDate(string postDate)
+    //{
+    //    this.postDate = postDate;
+    //}
 
-    public String getGiftDepositAvailable()
-    {
-        return giftDepositAvailable;
-    }
+    //public String getGiftDepositAvailable()
+    //{
+    //    return giftDepositAvailable;
+    //}
 
-    public void setGiftDepositAvailable(String giftDepositAvailable)
-    {
-        this.giftDepositAvailable = giftDepositAvailable;
-    }
+    //public void setGiftDepositAvailable(String giftDepositAvailable)
+    //{
+    //    this.giftDepositAvailable = giftDepositAvailable;
+    //}
 
-    public AdditionalShippingInfo getAdditionalShipping()
-    {
-        return additionalShipping;
-    }
+    //public AdditionalShippingInfo getAdditionalShipping()
+    //{
+    //    return additionalShipping;
+    //}
 
-    public void setAdditionalShipping(AdditionalShippingInfo additionalShipping)
-    {
-        this.additionalShipping = additionalShipping;
-    }
+    //public void setAdditionalShipping(AdditionalShippingInfo additionalShipping)
+    //{
+    //    this.additionalShipping = additionalShipping;
+    //}
 
-    public string getReference3()
-    {
-        return reference3;
-    }
+    //public string getReference3()
+    //{
+    //    return reference3;
+    //}
 
-    public void setReference3(string reference3)
-    {
-        this.reference3 = reference3;
-    }
+    //public void setReference3(string reference3)
+    //{
+    //    this.reference3 = reference3;
+    //}
 
     public string getMcc()
     {
@@ -701,7 +661,7 @@ public class TransactionRequest
         this.userName = userName;
     }
 
-    public String getType()
+    public string getType()
     {
         return type;
     }
@@ -711,23 +671,23 @@ public class TransactionRequest
         this.type = type;
     }
 
-    public string getBin()
-    {
-        return bin;
-    }
+    //public string getBin()
+    //{
+    //    return bin;
+    //}
 
-    public void setBin(String bin)
-    {
-        this.bin = bin;
-    }
+    //public void setBin(String bin)
+    //{
+    //    this.bin = bin;
+    //}
 
-    public ConnectPay getConnectPay()
-    {
-        return connectPay;
-    }
+    //public ConnectPay getConnectPay()
+    //{
+    //    return connectPay;
+    //}
 
-    public void setConnectPay(ConnectPay connectPay)
-    {
-        this.connectPay = connectPay;
-    }
+    //public void setConnectPay(ConnectPay connectPay)
+    //{
+    //    this.connectPay = connectPay;
+    //}
 }

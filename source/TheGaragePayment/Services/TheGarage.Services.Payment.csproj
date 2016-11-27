@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -44,7 +48,7 @@
     <Compile Include="api\APIResourceConstants.cs" />
     <Compile Include="api\PayeezyRequestOptions.cs" />
     <Compile Include="api\RequestMethod.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="JSONHelperN.cs" />
     <Compile Include="client\MessageLogger.cs" />
     <Compile Include="client\PayeezyAbstractClient.cs" />
     <Compile Include="client\PayeezyClient.cs" />
@@ -109,6 +113,9 @@
     <Compile Include="models\transaction\TransactionType.cs" />
     <Compile Include="models\transaction\Transarmor.cs" />
     <Compile Include="models\transaction\ValueLink.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

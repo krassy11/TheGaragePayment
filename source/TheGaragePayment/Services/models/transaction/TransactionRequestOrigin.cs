@@ -11,38 +11,41 @@
 //@JsonAutoDetect(getterVisibility= JsonAutoDetect.Visibility.DEFAULT,setterVisibility= JsonAutoDetect.Visibility.DEFAULT,fieldVisibility= JsonAutoDetect.Visibility.ANY)
 //@JsonIgnoreProperties(ignoreUnknown = true)
 //@JsonInclude(JsonInclude.Include.NON_EMPTY)
-//public class TransactionRequestOrigin {
+public class TransactionRequestOrigin
+{
+    private string ipAddress;
 
-//    @JsonProperty("ip_address")
-//    private String ipAddress;
+    private string host;
 
-//    @JsonProperty("host")
-//    private String host;
+    private string deviceId;
 
-//    @JsonProperty("device_id")
-//    private String deviceId;
+    public string getIpAddress()
+    {
+        return ipAddress;
+    }
 
-//    public String getIpAddress() {
-//        return ipAddress;
-//    }
+    public void setIpAddress(string ipAddress)
+    {
+        this.ipAddress = ipAddress;
+    }
 
-//    public void setIpAddress(String ipAddress) {
-//        this.ipAddress = ipAddress;
-//    }
+    public string getHost()
+    {
+        return host;
+    }
 
-//    public String getHost() {
-//        return host;
-//    }
+    public void setHost(string host)
+    {
+        this.host = host;
+    }
 
-//    public void setHost(String host) {
-//        this.host = host;
-//    }
+    public string getDeviceId()
+    {
+        return deviceId;
+    }
 
-//    public String getDeviceId() {
-//        return deviceId;
-//    }
-
-//    public void setDeviceId(String deviceId) {
-//        this.deviceId = deviceId;
-//    }
-//}
+    public void setDeviceId(string deviceId)
+    {
+        this.deviceId = deviceId;
+    }
+}

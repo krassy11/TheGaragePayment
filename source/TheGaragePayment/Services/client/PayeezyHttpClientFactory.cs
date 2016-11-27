@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Specialized;
 using System.Configuration;
 using System.Net.Http;
@@ -65,39 +66,45 @@ public class PayeezyHttpClientFactory
             //        .setExpectContinueEnabled(true)
             //        .setStaleConnectionCheckEnabled(true).build();
 
-            HttpClientBuilder clientBuilder = HttpClientBuilder.create().setConnectionManager(cm);
+
+            HttpClient clientBuilder = HttpClient.create().setConnectionManager(cm);
+
+            var response = Request.CreateResponse();
+
             clientBuilder.setDefaultRequestConfig(requestConfig);
             // set proxy
-            string proxyUrl = appSettings["proxyHost"];
-            //String proxyUrl = properties.getProperty("proxyHost");
-            bool proxyURLProvided = StringUtils.isNotEmpty(proxyUrl);
-            if (!proxyURLProvided)
-            {
-                System.out.println("No Proxy URL Set");
-            }
-            String proxyPort = config..getProperty("proxyPort");
-            if (proxyURLProvided && StringUtils.isEmpty(proxyPort))
-            {
-                System.out.println("Proxy Port not provided. Defaulting to port 80");
-                proxyPort = "80";
-            }
+            //string proxyUrl = appSettings["proxyHost"];
+            ////String proxyUrl = properties.getProperty("proxyHost");
+            //bool proxyURLProvided = StringUtils.isNotEmpty(proxyUrl);
+            //if (!proxyURLProvided)
+            //{
+            //    System.out.println("No Proxy URL Set");
+            //}
+            //String proxyPort = config..getProperty("proxyPort");
+            //if (proxyURLProvided && StringUtils.isEmpty(proxyPort))
+            //{
+            //    System.out.println("Proxy Port not provided. Defaulting to port 80");
+            //    proxyPort = "80";
+            //}
 
-            if (proxyURLProvided)
-            {
-                HttpHost proxy = new HttpHost(proxyUrl, Integer.parseInt(proxyPort));
-                clientBuilder.setProxy(proxy);
-            }
+            //if (proxyURLProvided)
+            //{
+            //    HttpHost proxy = new HttpHost(proxyUrl, Integer.parseInt(proxyPort));
+            //    clientBuilder.setProxy(proxy);
+            //}
 
             httpClient = clientBuilder.build();
         }
-        catch (NoSuchAlgorithmException ex)
+        catch (Exception ex)
         {
-            ex.printStackTrace();
+            //ex.StackTrace();
+            Console.WriteLine(ex.Message);
         }
-        catch (KeyManagementException ex)
-        {
-            ex.printStackTrace();
-        }
+        //catch (KeyManagementException ex)
+        //{
+        //    //ex.printStackTrace();
+        //    Console.WriteLine(ex.Message);
+        //}
     }
 
     public HttpClient getHttpClient()

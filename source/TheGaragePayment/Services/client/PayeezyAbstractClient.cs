@@ -13,6 +13,7 @@
 //import java.util.Map;
 
 
+using System;
 using System.Collections.Generic;
 using System.Text;
 using TheGarage.Services.Payment.api;
@@ -31,14 +32,14 @@ public abstract class PayeezyAbstractClient
             throw new Exception("Payeezy Request Options not set");
 }
         try {
-            long nonce = Math.abs(SecureRandom.getInstance("SHA1PRNG").nextLong());
-returnMap.put(APIResourceConstants.SecurityConstants.NONCE, Long.ToString(nonce));
-            returnMap.put(APIResourceConstants.SecurityConstants.APIKEY, requestOptions.getApiKey());
-            returnMap.put(APIResourceConstants.SecurityConstants.TIMESTAMP, Long.toString(System.currentTimeMillis()));
-            returnMap.put(APIResourceConstants.SecurityConstants.TOKEN, requestOptions.getToken());
-            returnMap.put(APIResourceConstants.SecurityConstants.APISECRET, requestOptions.getSecret());
-            returnMap.put(APIResourceConstants.SecurityConstants.PAYLOAD, payLoad);
-            returnMap.put(APIResourceConstants.SecurityConstants.AUTHORIZE, getMacValue(returnMap));
+//            long nonce = Math.Abs(SecureRandom.getInstance("SHA1PRNG").nextLong());
+//returnMap.put(APIResourceConstants.SecurityConstants.NONCE, Long.ToString(nonce));
+            returnMap.Add(APIResourceConstants.SecurityConstants.APIKEY, requestOptions.getApiKey());
+            returnMap.Add(APIResourceConstants.SecurityConstants.TIMESTAMP, Long.toString(System.currentTimeMillis()));
+            returnMap.Add(APIResourceConstants.SecurityConstants.TOKEN, requestOptions.getToken());
+            returnMap.Add(APIResourceConstants.SecurityConstants.APISECRET, requestOptions.getSecret());
+            returnMap.Add(APIResourceConstants.SecurityConstants.PAYLOAD, payLoad);
+            returnMap.Add(APIResourceConstants.SecurityConstants.AUTHORIZE, getMacValue(returnMap));
             return returnMap;
         } catch (NoSuchAlgorithmException e) {
             MessageLogger.logMessage(e.getMessage());
@@ -52,7 +53,7 @@ returnMap.put(APIResourceConstants.SecurityConstants.NONCE, Long.ToString(nonce)
      * @return
      * @throws Exception
      */
-    private string getMacValue(Map<String, String> data)
+    private string getMacValue(Dictionary<string, string> data)
 {
     Mac mac=Mac.getInstance("HmacSHA256");
     String apiSecret= data.get(APIResourceConstants.SecurityConstants.APISECRET);

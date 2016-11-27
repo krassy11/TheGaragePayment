@@ -1,79 +1,65 @@
-//package com.firstdata.payeezy.models.transaction;
+using Newtonsoft.Json;
 
+public class Card
+{
+    private string type;
 
-//import com.fasterxml.jackson.annotation.JsonAutoDetect;
-//import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
-//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-//import com.fasterxml.jackson.annotation.JsonInclude;
-//import com.fasterxml.jackson.annotation.JsonInclude.Include;
-//import com.fasterxml.jackson.annotation.JsonProperty;
+    private string name;
 
-//@JsonAutoDetect(getterVisibility= Visibility.NONE,setterVisibility= Visibility.NONE,fieldVisibility= Visibility.ANY)
-//@JsonIgnoreProperties(ignoreUnknown = true)
-//@JsonInclude(Include.NON_EMPTY)
-//public class Card implements Cloneable {
+    private string number;
 
-//	@JsonProperty("type")
-//	private String type;
+    [JsonProperty(PropertyName = "expiryDt")]
+    private string expiryDt;
 
-//	@JsonProperty("cardholder_name")
-//	private String name;
+    private string cvv;
 
-//	@JsonProperty("card_number")
-//	private String number;
+    public string getType()
+    {
+        return type;
+    }
 
-//	@JsonProperty("exp_date")
-//	private String expiryDt;
+    public void setType(string type)
+    {
+        this.type = type;
+    }
 
-//	@JsonProperty("cvv")
-//	private String cvv;
-	
-	
-	
-//	public String getType() {
-//		return type;
-//	}
-	
-//	public void setType(String type) {
-//		this.type = type;
-//	}
-	
-//	public String getName() {
-//		return name;
-//	}
-	
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-	
-//	public String getNumber() {
-//		return number;
-//	}
-	
-//	public void setNumber(String nmber) {
-//		this.number = nmber;
-//	}
-	
-//	public String getExpiryDt() {
-//		return expiryDt;
-//	}
-	
-//	public void setExpiryDt(String expiryDt) {
-//		this.expiryDt = expiryDt;
-//	}
-	
-//	public String getCvv() {
-//		return cvv;
-//	}
-	
-//	public void setCvv(String cvv) {
-//		this.cvv = cvv;
-//	}
+    public string getName()
+    {
+        return name;
+    }
 
-//	@Override
-//	public Card clone() throws CloneNotSupportedException {
-//		// TODO Auto-generated method stub
-//		return (Card)super.clone();
-//	}
+    public void setName(string name)
+    {
+        this.name = name;
+    }
 
-//}
+    public string getNumber()
+    {
+        return number;
+    }
+
+    public void setNumber(string nmber)
+    {
+        this.number = nmber;
+    }
+
+    public string getExpiryDt()
+    {
+        return expiryDt;
+    }
+
+    public void setExpiryDt(string expiryDt)
+    {
+        this.expiryDt = expiryDt;
+    }
+
+    public string getCvv()
+    {
+        return cvv;
+    }
+
+    public void setCvv(string cvv)
+    {
+        this.cvv = cvv;
+    }
+}
