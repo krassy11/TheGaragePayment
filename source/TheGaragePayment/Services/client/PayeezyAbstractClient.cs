@@ -15,6 +15,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 using TheGarage.Services.Payment.api;
 using TheGarage.Services.Payment.models.transaction;
@@ -31,20 +32,24 @@ public abstract class PayeezyAbstractClient
         if(requestOptions == null){
             throw new Exception("Payeezy Request Options not set");
 }
-        try {
+        //try {
 //            long nonce = Math.Abs(SecureRandom.getInstance("SHA1PRNG").nextLong());
 //returnMap.put(APIResourceConstants.SecurityConstants.NONCE, Long.ToString(nonce));
             returnMap.Add(APIResourceConstants.SecurityConstants.APIKEY, requestOptions.getApiKey());
-            returnMap.Add(APIResourceConstants.SecurityConstants.TIMESTAMP, Long.toString(System.currentTimeMillis()));
+            //returnMap.Add(APIResourceConstants.SecurityConstants.TIMESTAMP, Long.toString(System.currentTimeMillis()));
             returnMap.Add(APIResourceConstants.SecurityConstants.TOKEN, requestOptions.getToken());
             returnMap.Add(APIResourceConstants.SecurityConstants.APISECRET, requestOptions.getSecret());
             returnMap.Add(APIResourceConstants.SecurityConstants.PAYLOAD, payLoad);
             returnMap.Add(APIResourceConstants.SecurityConstants.AUTHORIZE, getMacValue(returnMap));
             return returnMap;
-        } catch (NoSuchAlgorithmException e) {
-            MessageLogger.logMessage(e.getMessage());
-            throw new RuntimeException(e.getMessage(),e);
-        }
+        //} catch (ExecutionEngineException e) {
+        //    MessageLogger.logMessage(e.getMessage());
+        //    throw new RuntimeException(e.getMessage(),e);
+       //}
+       // catch
+       // {
+
+       // }
     }
 
     /**
@@ -55,36 +60,51 @@ public abstract class PayeezyAbstractClient
      */
     private string getMacValue(Dictionary<string, string> data)
 {
-    Mac mac=Mac.getInstance("HmacSHA256");
-    String apiSecret= data.get(APIResourceConstants.SecurityConstants.APISECRET);
-    SecretKeySpec secret_key = new SecretKeySpec(apiSecret.getBytes(), "HmacSHA256");
-    mac.init(secret_key);
-    String apikey = data.get(APIResourceConstants.SecurityConstants.APIKEY);
-    String nonce = data.get(APIResourceConstants.SecurityConstants.NONCE);
-    String timeStamp = data.get(APIResourceConstants.SecurityConstants.TIMESTAMP);
-    String token = data.get(APIResourceConstants.SecurityConstants.TOKEN);
-    String payload = data.get(APIResourceConstants.SecurityConstants.PAYLOAD);
+    //Mac mac=Mac.getInstance("HmacSHA256");
+    string apiSecret= data[APIResourceConstants.SecurityConstants.APISECRET];
+    //SecretKeySpec secret_key = new SecretKeySpec(apiSecret.getBytes(), "HmacSHA256");
+        byte[] secret_key = Encoding.UTF8.GetBytes(apiSecret);
+
+        HMACSHA256 hmac = new HMACSHA256(secret_key);
+        hmac.Initialize();
+        //foreach (var key in data)
+        //{
+        //    var ss = data[key.Key]
+        //}
+        //byte[] bytes = Encoding.UTF8.GetBytes(data.);
+        //byte[] rawHmac = hmac.ComputeHash(bytes);
+        //Console.WriteLine(Convert.ToBase64String(rawHmac));
+
+        //mac.init(secret_key);
+        string apikey = data[APIResourceConstants.SecurityConstants.APIKEY];
+        string nonce = data[APIResourceConstants.SecurityConstants.NONCE];
+        //String timeStamp = data.get(APIResourceConstants.SecurityConstants.TIMESTAMP);
+        string token = data[APIResourceConstants.SecurityConstants.TOKEN];
+        string payload = data[APIResourceConstants.SecurityConstants.PAYLOAD];
 
     StringBuilder buff = new StringBuilder();
-    buff.append(apikey)
-            .append(nonce)
-            .append(timeStamp);
+        buff.Append(apikey);
+            //.append(nonce)
+            //.append(timeStamp);
     if (token != null)
     {
-        buff.append(token);
+        buff.Append(token);
     }
     if (payload != null)
     {
-        buff.append(payload);
+        buff.Append(payload);
     }
-    string bufferData = buff.toString();
+    string bufferData = buff.ToString();
     //MessageLogger.logMessage(String.format(bufferData));
-    byte[] macHash = mac.doFinal(bufferData.getBytes("UTF-8"));
-    //MessageLogger.logMessage(Integer.toString(macHash.length));
-    //MessageLogger.logMessage(String.format("MacHAsh:{}" , macHash));
-    String authorizeString = new String(Base64.encodeBase64(toHex(macHash)));
+    //byte[] macHash = mac.doFinal(bufferData.get("UTF-8"));
+        var macHash = Encoding.UTF8.GetBytes(bufferData);
+        //MessageLogger.logMessage(Integer.toString(macHash.length));
+        //MessageLogger.logMessage(String.format("MacHAsh:{}" , macHash));
+        string authorizeString = Convert.ToBase64String(macHash);
     //   MessageLogger.logMessage(String.format("Authorize:{}" , authorizeString));
     return authorizeString;
+
+
     }
 
     /**
@@ -92,11 +112,11 @@ public abstract class PayeezyAbstractClient
      * @param arr
      * @return
      */
-    private byte[] toHex(byte[] arr)
-{
-    string hex = byteArrayToHex(arr);
-    return hex.getBytes();
-}
+//    private byte[] toHex(byte[] arr)
+//{
+//    string hex = byteArrayToHex(arr);
+//    //return hex.getBytes();
+//}
 
 private string byteArrayToHex(byte[] a)
 {

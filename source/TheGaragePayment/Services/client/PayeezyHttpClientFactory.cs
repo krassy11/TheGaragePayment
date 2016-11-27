@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Specialized;
 using System.Configuration;
+using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Configuration;
@@ -36,7 +37,8 @@ public class PayeezyHttpClientFactory
 
     private HttpClient httpClient;
 
-    private NameValueCollection appSettings = ConfigurationManager.AppSettings;
+    private NameValueCollection appSettings = WebConfigurationManager.AppSettings;
+
 
     public PayeezyHttpClientFactory(NameValueCollection appSettings)
     {
@@ -67,13 +69,15 @@ public class PayeezyHttpClientFactory
             //        .setStaleConnectionCheckEnabled(true).build();
 
 
-            HttpClient clientBuilder = HttpClient.create().setConnectionManager(cm);
-
-            var response = Request.CreateResponse();
-
-            clientBuilder.setDefaultRequestConfig(requestConfig);
-            // set proxy
-            //string proxyUrl = appSettings["proxyHost"];
+           // var clientBuilder = new HttpWebRequest();
+           //clientBuilder.sss
+                
+            
+           // clientBuilder.setDefaultRequestConfig(requestConfig);
+            //set proxy
+            string proxyUrl = appSettings["proxyHost"];
+            var proxy = HttpWebRequest.Create(proxyUrl);
+            //HttpHost proxy = new HttpHost(proxyUrl, Integer.parseInt(proxyPort));
             ////String proxyUrl = properties.getProperty("proxyHost");
             //bool proxyURLProvided = StringUtils.isNotEmpty(proxyUrl);
             //if (!proxyURLProvided)
@@ -93,7 +97,7 @@ public class PayeezyHttpClientFactory
             //    clientBuilder.setProxy(proxy);
             //}
 
-            httpClient = clientBuilder.build();
+            //httpClient = clientBuilder.build();
         }
         catch (Exception ex)
         {
