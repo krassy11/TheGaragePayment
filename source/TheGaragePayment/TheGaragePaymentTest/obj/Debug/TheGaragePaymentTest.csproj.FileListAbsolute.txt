@@ -9,3 +9,4 @@ C:\Users\Admin\Source\Repos\TheGaragePayment\source\TheGaragePayment\TheGaragePa
 C:\Users\Admin\Source\Repos\TheGaragePayment\source\TheGaragePayment\TheGaragePaymentTest\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Admin\Source\Repos\TheGaragePayment\source\TheGaragePayment\TheGaragePaymentTest\obj\Debug\TheGaragePaymentTest.exe
 C:\Users\Admin\Source\Repos\TheGaragePayment\source\TheGaragePayment\TheGaragePaymentTest\obj\Debug\TheGaragePaymentTest.pdb
+C:\Users\Admin\Source\Repos\TheGaragePayment\source\TheGaragePayment\TheGaragePaymentTest\obj\Debug\TheGaragePaymentTest.csprojResolveAssemblyReference.cache

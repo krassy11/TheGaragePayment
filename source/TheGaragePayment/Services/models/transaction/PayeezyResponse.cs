@@ -8,6 +8,10 @@ namespace TheGarage.Services.Payment.models.transaction
         private int statusCode;
         private string responseBody;
 
+        public PayeezyResponse()
+        {
+        }
+
         public PayeezyResponse(int statusCode, string responseBody)
         {
             this.statusCode = statusCode;

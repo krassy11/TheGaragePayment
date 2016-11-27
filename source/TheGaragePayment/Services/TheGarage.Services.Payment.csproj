@@ -48,14 +48,14 @@
     <Compile Include="api\APIResourceConstants.cs" />
     <Compile Include="api\PayeezyRequestOptions.cs" />
     <Compile Include="api\RequestMethod.cs" />
-    <Compile Include="JSONHelperN.cs" />
+    <Compile Include="JSONHelper.cs" />
     <Compile Include="client\MessageLogger.cs" />
     <Compile Include="client\PayeezyAbstractClient.cs" />
     <Compile Include="client\PayeezyClient.cs" />
     <Compile Include="client\PayeezyClientSetup.cs" />
     <Compile Include="client\PayeezyConfiguration.cs" />
     <Compile Include="client\PayeezyHttpClientFactory.cs" />
-    <Compile Include="JSONHelper.cs" />
+    <Compile Include="JSONHelper1.cs" />
     <Compile Include="models\enrollment\Address.cs" />
     <Compile Include="models\enrollment\BAARequest.cs" />
     <Compile Include="models\enrollment\ConnectPayTokenRequest.cs" />

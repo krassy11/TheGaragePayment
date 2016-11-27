@@ -126,7 +126,7 @@ private string byteArrayToHex(byte[] a)
     return sb.ToString();
 }
 
-    protected abstract PayeezyResponse executePostRequest(string uri, string payload, PayeezyRequestOptions requestOptions);
+    //protected abstract PayeezyResponse executePostRequest(string uri, string payload, PayeezyRequestOptions requestOptions);
 
     protected abstract PayeezyResponse executeGetRequest(string uri, Dictionary<string, string> queryParams);
 

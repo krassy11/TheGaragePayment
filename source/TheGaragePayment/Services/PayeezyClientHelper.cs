@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
 using System.Web.Configuration;
+using TheGarage.Services.Payment;
 using TheGarage.Services.Payment.api;
 using TheGarage.Services.Payment.client;
 using TheGarage.Services.Payment.models.transaction;
@@ -59,11 +60,11 @@ payeezyClient = new PayeezyClient(appSettings);
      */
     public PayeezyClientHelper(NameValueCollection appSettings)
 {
-    jsonHelper = new JSONHelper();
-    if (appSettings == null || appSettings.isEmpty())
-    {
-        throw new ApplicationRuntimeException("SDK Properties should be configured to use the Client. Please provide the required properties based on the type of transaction.");
-    }
+    //jsonHelper = new JSONHelper();
+    //if (appSettings == null || appSettings.isEmpty())
+    //{
+    //    throw new ApplicationRuntimeException("SDK Properties should be configured to use the Client. Please provide the required properties based on the type of transaction.");
+    //}
     this.appSettings = appSettings;
     payeezyClient = new PayeezyClient(appSettings);
 }
@@ -76,7 +77,7 @@ payeezyClient = new PayeezyClient(appSettings);
  */
 public PayeezyResponse doPrimaryTransaction(TransactionRequest transactionRequest)
 {
-    string payload = jsonHelper.getJSONObject(transactionRequest);
+    string payload = new JSONHelper<TransactionRequest>().getJSONObject(transactionRequest);
     
     string URL = appSettings["url"];
     URL = URL+ APIResourceConstants.PRIMARY_TRANSACTIONS;
@@ -90,9 +91,9 @@ public PayeezyResponse doPrimaryTransaction(TransactionRequest transactionReques
 
 public PayeezyResponse doSecondaryTransaction(string id, TransactionRequest transactionRequest)
 {
-    string URL = properties.getProperty("url");
+    string URL = appSettings["url"];
     URL = URL+ APIResourceConstants.PRIMARY_TRANSACTIONS+ "/"+id;
-    string payload = jsonHelper.getJSONObject(transactionRequest);
+    string payload = new JSONHelper<TransactionRequest>().getJSONObject(transactionRequest);
     PayeezyResponse payeezyResponse = payeezyClient.execute(URL, RequestMethod.POST, getRequestOptions(),payload );
         return payeezyResponse;
 }
@@ -105,18 +106,18 @@ public PayeezyResponse doSecondaryTransaction(string id, TransactionRequest tran
  */
 public PayeezyResponse doGetTokenCall(Dictionary<string, string> queryMap)
 {
-    string URL = properties.getProperty("url")+ APIResourceConstants.SECURE_TOKEN_URL;
+    string URL = appSettings["url"]+ APIResourceConstants.SECURE_TOKEN_URL;
         if(URL.Contains("http://")){
         URL.Replace("https://", "");
     }
         if(!queryMap.ContainsKey(APIResourceConstants.SecurityConstants.APIKEY)){
-        String apikey = properties.getProperty(APIResourceConstants.SecurityConstants.APIKEY);
+        String apikey = appSettings[APIResourceConstants.SecurityConstants.APIKEY];
         queryMap.Add(APIResourceConstants.SecurityConstants.APIKEY, apikey);
     }
 
         if(!queryMap.ContainsKey(APIResourceConstants.SecurityConstants.JS_SECURITY_KEY)){
-        String jsSecurityKey = properties.getProperty(APIResourceConstants.SecurityConstants.JS_SECURITY_KEY);
-        queryMap.put(APIResourceConstants.SecurityConstants.JS_SECURITY_KEY, jsSecurityKey);
+        String jsSecurityKey = appSettings[APIResourceConstants.SecurityConstants.JS_SECURITY_KEY];
+        queryMap.Add(APIResourceConstants.SecurityConstants.JS_SECURITY_KEY, jsSecurityKey);
     }
     PayeezyResponse payeezyResponse = payeezyClient.execute(URL, RequestMethod.GET, null, queryMap);
         return payeezyResponse;
@@ -131,7 +132,7 @@ public PayeezyResponse doGetTokenCall(Dictionary<string, string> queryMap)
 public PayeezyResponse doExchangeRate(TransactionRequest transactionRequest)
 {
     string URL = appSettings["url"]+ APIResourceConstants.EXCHANGE_RATE;
-    string payload = jsonHelper.getJSONObject(transactionRequest);
+    string payload = new JSONHelper<TransactionRequest>().getJSONObject(transactionRequest);
     PayeezyResponse payeezyResponse = payeezyClient.execute(URL, RequestMethod.POST, getRequestOptions(),payload );
         return payeezyResponse;
 }
