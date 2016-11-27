@@ -30,6 +30,7 @@
 //import java.util.Properties;
 //import java.util.Set;
 
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net;
@@ -139,7 +140,7 @@ namespace TheGarage.Services.Payment.client
             ResponseHandler<PayeezyResponse> responseHandler = new ResponseHandler<PayeezyResponse>()
             {
 
-           public PayeezyResponse handleResponse(final HttpResponse response)
+           public PayeezyResponse handleResponse(HttpResponse response)
         {
             return getResponse(response);
         }
@@ -213,7 +214,7 @@ protected PayeezyResponse executePutRequest(string uri, string payload, PayeezyR
  * @return
  * @throws URISyntaxException
  */
-private URI buildGetURI(string uri, Dictionary<string, string> queryParams)
+private Uri buildGetURI(string uri, Dictionary<string, string> queryParams)
 {
     if (uri.contains("https://"))
     {

@@ -106,15 +106,15 @@ public PayeezyResponse doSecondaryTransaction(string id, TransactionRequest tran
 public PayeezyResponse doGetTokenCall(Dictionary<string, string> queryMap)
 {
     string URL = properties.getProperty("url")+ APIResourceConstants.SECURE_TOKEN_URL;
-        if(URL.contains("http://")){
-        URL.replace("https://", "");
+        if(URL.Contains("http://")){
+        URL.Replace("https://", "");
     }
-        if(!queryMap.containsKey(APIResourceConstants.SecurityConstants.APIKEY)){
+        if(!queryMap.ContainsKey(APIResourceConstants.SecurityConstants.APIKEY)){
         String apikey = properties.getProperty(APIResourceConstants.SecurityConstants.APIKEY);
-        queryMap.put(APIResourceConstants.SecurityConstants.APIKEY, apikey);
+        queryMap.Add(APIResourceConstants.SecurityConstants.APIKEY, apikey);
     }
 
-        if(!queryMap.containsKey(APIResourceConstants.SecurityConstants.JS_SECURITY_KEY)){
+        if(!queryMap.ContainsKey(APIResourceConstants.SecurityConstants.JS_SECURITY_KEY)){
         String jsSecurityKey = properties.getProperty(APIResourceConstants.SecurityConstants.JS_SECURITY_KEY);
         queryMap.put(APIResourceConstants.SecurityConstants.JS_SECURITY_KEY, jsSecurityKey);
     }
