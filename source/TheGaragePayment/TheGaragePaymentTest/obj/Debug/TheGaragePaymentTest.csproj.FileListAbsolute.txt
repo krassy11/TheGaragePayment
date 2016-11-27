@@ -1,0 +1,2 @@
+D:\Source\Repos\TheGaragePayment\source\TheGaragePayment\TheGaragePaymentTest\bin\Debug\TheGaragePaymentTest.exe.config
+D:\Source\Repos\TheGaragePayment\source\TheGaragePayment\TheGaragePaymentTest\obj\Debug\TheGaragePaymentTest.csprojResolveAssemblyReference.cache
