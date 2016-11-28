@@ -45,32 +45,52 @@ namespace TheGaragePaymentTest
             //{
             //    Console.WriteLine(e.StackTrace);
             //}
+            var studentsServiceUrl = "https://api-cert.payeezy.com";
+
+            var testUrl = "http://localhost:29863";
+
+            //HttpRequester.Post(studentsServiceUrl + "students", newBook);
+
+            //var card = new Card()
+            //{
+            //    Id = 1,
+            //    Token = "465456464666",
+            //    HolderName = "Ivan Ivanov"
+            //};
 
 
-            var card = new Card()
-            {
-                Id = 1,
-                Token = "465456464666",
-                HolderName = "Ivan Ivanov"
-            };
+            //var cards = HttpRequester.Get<IEnumerable<Card>>(studentsServiceUrl + "/v1/securitytokens");
 
-            var jsonHelper = new JSONHelperN<Card>();
-            var sss = jsonHelper.getJSONObject(card);
-            Console.WriteLine(sss);
-            var kkk = jsonHelper.fromJson(sss);
-            Console.WriteLine(kkk.Token);
 
-            var url = "http://www.abv.bg";
-            HttpWebRequest myHttpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-            HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
-            if (myHttpWebResponse.StatusCode == HttpStatusCode.OK)
-                Console.WriteLine("\r\nResponse Status Code is OK and StatusDescription is: {0}",
-                                     myHttpWebResponse.StatusDescription);
-            // Releases the resources of the response.
-            Console.WriteLine(myHttpWebResponse.GetResponseStream());
-            Console.WriteLine("-------------------------------------");
-            Console.WriteLine(myHttpWebResponse.GetResponseStream());
-            myHttpWebResponse.Close();
+            var values = HttpRequester.Get<ValuesResponse>(testUrl + "/api/values");
+
+            //foreach (var item in values)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+
+
+
+
+
+            //var jsonHelper = new JSONHelperN<Card>();
+            //var sss = jsonHelper.getJSONObject(card);
+            //Console.WriteLine(sss);
+            //var kkk = jsonHelper.fromJson(sss);
+            //Console.WriteLine(kkk.Token);
+
+            //var url = "http://www.abv.bg";
+            //HttpWebRequest myHttpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+            //HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
+            //if (myHttpWebResponse.StatusCode == HttpStatusCode.OK)
+            //    Console.WriteLine("\r\nResponse Status Code is OK and StatusDescription is: {0}",
+            //                         myHttpWebResponse.StatusDescription);
+            //// Releases the resources of the response.
+            //Console.WriteLine(myHttpWebResponse.GetResponseStream());
+            //Console.WriteLine("-------------------------------------");
+            //Console.WriteLine(myHttpWebResponse.GetResponseStream());
+            //myHttpWebResponse.Close();
 
 
 

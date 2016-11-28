@@ -8,10 +8,6 @@ namespace TheGaragePaymentTest
 {
     public class Card
     {
-        public int Id { get; set; }
-
-        public string Token { get; set; }
-
-        public string HolderName { get; set; }
+        public string Status { get; set; }
     }
 }

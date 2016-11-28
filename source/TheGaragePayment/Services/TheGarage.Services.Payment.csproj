@@ -48,6 +48,7 @@
     <Compile Include="api\APIResourceConstants.cs" />
     <Compile Include="api\PayeezyRequestOptions.cs" />
     <Compile Include="api\RequestMethod.cs" />
+    <Compile Include="HttpRequester.cs" />
     <Compile Include="JSONHelper.cs" />
     <Compile Include="client\MessageLogger.cs" />
     <Compile Include="client\PayeezyAbstractClient.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="models\enrollment\EnrollmentApp.cs" />
     <Compile Include="models\enrollment\EnrollmentRequest.cs" />
     <Compile Include="PayeezyClientHelper.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
