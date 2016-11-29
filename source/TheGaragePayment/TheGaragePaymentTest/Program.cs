@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using TheGarage.Services.Payment;
@@ -62,8 +63,14 @@ namespace TheGaragePaymentTest
             //var cards = HttpRequester.Get<IEnumerable<Card>>(studentsServiceUrl + "/v1/securitytokens");
 
 
-            var values = HttpRequester.Get<ValuesResponse>(testUrl + "/api/values");
+            //var values = Hvar values = HttpRequester.Get<ValuesResponse>(testUrl + "/api/values");ttpRequester.Get<ValuesResponse>(testUrl + "/api/values");
 
+            var values = HttpRequester.Get<ValuesResponse>(testUrl + "/api/values");
+            var newVal = new ValuesResponse() { Name = "NovoJivotno" };
+            var responsePostValue = HttpRequester.Post<string>(testUrl + "/api/values", newVal);
+            Console.WriteLine(responsePostValue);
+            //HttpRequester.Get(testUrl + "/api/values");
+            Console.WriteLine(values.Name);
             //foreach (var item in values)
             //{
             //    Console.WriteLine(item);

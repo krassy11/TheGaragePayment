@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Web.Http;
 
 namespace WebApiTest.Controllers
@@ -11,9 +13,12 @@ namespace WebApiTest.Controllers
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public Animal Get()
         {
-            return new string[] { "value1", "value2" };
+            var newAdimal = new Animal() { Name = "Jivotnoto" };
+            string name = "pesho";
+            //return new string[] { "value1", "value2" };
+            return newAdimal;
         }
 
         // GET api/values/5
@@ -22,9 +27,16 @@ namespace WebApiTest.Controllers
             return "value";
         }
 
-        // POST api/values
-        public void Post([FromBody]string value)
+        //// POST api/values
+        //public void Post([FromBody]Animal Name)
+        //{
+        //}
+
+        public string Post([FromBody]Animal Name)
         {
+            //var newAdimal = new Animal() { Name = "Jivotnoto" };
+            string response = "Demo";
+            return response;
         }
 
         // PUT api/values/5

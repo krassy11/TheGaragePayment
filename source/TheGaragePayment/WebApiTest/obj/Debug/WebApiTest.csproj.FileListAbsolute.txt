@@ -85,6 +85,5 @@ E:\Payment\TheGaragePayment\source\TheGaragePayment\WebApiTest\bin\Microsoft.Owi
 E:\Payment\TheGaragePayment\source\TheGaragePayment\WebApiTest\bin\Microsoft.Owin.Security.Twitter.xml
 E:\Payment\TheGaragePayment\source\TheGaragePayment\WebApiTest\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\Payment\TheGaragePayment\source\TheGaragePayment\WebApiTest\bin\System.Web.Http.Owin.xml
-E:\Payment\TheGaragePayment\source\TheGaragePayment\WebApiTest\obj\Debug\WebApiTest.csprojResolveAssemblyReference.cache
 E:\Payment\TheGaragePayment\source\TheGaragePayment\WebApiTest\obj\Debug\WebApiTest.dll
 E:\Payment\TheGaragePayment\source\TheGaragePayment\WebApiTest\obj\Debug\WebApiTest.pdb

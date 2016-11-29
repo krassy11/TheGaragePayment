@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace TheGaragePaymentTest
+namespace WebApiTest.Controllers
 {
-    public class ValuesResponse
+    public class Animal
     {
         public string Name { get; set; }
     }

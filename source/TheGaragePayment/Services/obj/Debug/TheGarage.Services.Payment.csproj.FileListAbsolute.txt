@@ -13,7 +13,6 @@ C:\Users\Admin\Source\Repos\TheGaragePayment\source\TheGaragePayment\Services\bi
 C:\Users\Admin\Source\Repos\TheGaragePayment\source\TheGaragePayment\Services\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Admin\Source\Repos\TheGaragePayment\source\TheGaragePayment\Services\obj\Debug\TheGarage.Services.Payment.dll
 C:\Users\Admin\Source\Repos\TheGaragePayment\source\TheGaragePayment\Services\obj\Debug\TheGarage.Services.Payment.pdb
-E:\Payment\TheGaragePayment\source\TheGaragePayment\Services\obj\Debug\TheGarage.Services.Payment.csprojResolveAssemblyReference.cache
 E:\Payment\TheGaragePayment\source\TheGaragePayment\Services\obj\Debug\TheGarage.Services.Payment.dll
 E:\Payment\TheGaragePayment\source\TheGaragePayment\Services\obj\Debug\TheGarage.Services.Payment.pdb
 E:\Payment\TheGaragePayment\source\TheGaragePayment\Services\bin\Debug\TheGarage.Services.Payment.dll
