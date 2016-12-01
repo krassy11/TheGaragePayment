@@ -23,7 +23,6 @@ namespace TheGarage.Services.Payment
             //  request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36";
            // request.UserAgent = "Mozilla/5.0 (Linux; U; Android 4.0.3; ko-kr; LG-L160L Build/IML74K) AppleWebkit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30";
 
-
             var response = request.GetResponse();
             string responseString;
             using (StreamReader reader = new StreamReader(response.GetResponseStream()))
