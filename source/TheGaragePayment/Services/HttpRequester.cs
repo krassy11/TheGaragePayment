@@ -66,6 +66,10 @@ namespace TheGarage.Services.Payment
             var request = WebRequest.Create(resourceUrl) as HttpWebRequest;
             request.ContentType = "application/json";
             request.Method = "POST";
+            request.Headers.Add("apikey", "y6pWAJNyJyjGv66IsVuWnklkKUPFbb0a");
+            request.Headers.Add("Authorization", "YWI2MjFkMzVhOWVhMTkzZTZlYjExYzYxMGFhZWM1ZWY1NWQ3NDgwNTA1YmNhZTM0ZmNmM2Q1MjkxMzVmNDMzZA==");
+            request.Headers.Add("token", "fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6");
+            request.Headers.Add("timestamp", "1480621081859");
 
             var jsonData = JsonConvert.SerializeObject(data);
 

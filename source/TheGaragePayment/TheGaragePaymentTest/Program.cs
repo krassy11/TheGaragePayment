@@ -81,6 +81,33 @@ namespace TheGaragePaymentTest
             Console.WriteLine(values.Result.Token.Value);
 
 
+            var newVal = new ValuesResponse() { Name = "NovoJivotno" };
+
+            var data = new Purchase()
+            {
+                MerchantRef = "Astonishing-Sale",
+                TransactionType = "purchase",
+                Method = "token",
+                Amount = "200",
+                CurrencyCode = "USD",
+                Token = new Token()
+                {
+                    TokenType = "FDToken",
+                    TokenData = new TokenData()
+                    {
+                        Type = "visa",
+                        Value = "2537446225198291",
+                        CardholderName = "JohnSmith",
+                        ExpDate = "1030"
+                    }
+                }
+
+            };
+
+
+            var responsePostValue = HttpRequester.Post<PurchaseResponse>("https://api-cert.payeezy.com/v1/transactions", data);
+            Console.WriteLine(responsePostValue.Method);
+
 
             //var jsonHelper = new JSONHelperN<Card>();
             //var sss = jsonHelper.getJSONObject(card);
