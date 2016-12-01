@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +9,16 @@ namespace TheGaragePaymentTest
 {
     public class Card
     {
-        private Result results;
+        private Result result;
 
         public Card()
         {
-            this.Results = new Result();
+            this.result = new Result();
         }
+
         public string Status { get; set; }
 
-        public Result Results { get; set; }
+        [JsonProperty(PropertyName = "Results")]
+        public Result Result { get; set; }
     }
 }

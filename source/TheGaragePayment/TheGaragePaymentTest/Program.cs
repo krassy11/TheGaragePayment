@@ -78,7 +78,7 @@ namespace TheGaragePaymentTest
 
             var values = HttpRequester.Get<Card>("https://api-cert.payeezy.com" + "/v1/securitytokens?apikey=y6pWAJNyJyjGv66IsVuWnklkKUPFbb0a&js_security_key=js-6125e57ce5c46e10087a545b9e9d7354c23e1a1670d9e9c7&ta_token=NOIW&auth=true&callback=Payeezy.callback&type=FDToken&credit_card.type=visa&credit_card.cardholder_name=John%20Smith&credit_card.card_number=4788250000028291&credit_card.exp_date=1030&credit_card.cvv=123");
             Console.WriteLine(values.Status);
-            Console.WriteLine(values.Results.Token.Value);
+            Console.WriteLine(values.Result.Token.Value);
 
 
 
