@@ -65,19 +65,20 @@ namespace TheGaragePaymentTest
 
             //var values = Hvar values = HttpRequester.Get<ValuesResponse>(testUrl + "/api/values");ttpRequester.Get<ValuesResponse>(testUrl + "/api/values");
 
-            var values = HttpRequester.Get<ValuesResponse>(testUrl + "/api/values");
-            var newVal = new ValuesResponse() { Name = "NovoJivotno" };
-            var responsePostValue = HttpRequester.Post<string>(testUrl + "/api/values", newVal);
-            Console.WriteLine(responsePostValue);
-            //HttpRequester.Get(testUrl + "/api/values");
-            Console.WriteLine(values.Name);
+            //var values = HttpRequester.Get<ValuesResponse>(testUrl + "/api/values");
+            //var newVal = new ValuesResponse() { Name = "NovoJivotno" };
+            //var responsePostValue = HttpRequester.Post<string>(testUrl + "/api/values", newVal);
+            //Console.WriteLine(responsePostValue);
+            ////HttpRequester.Get(testUrl + "/api/values");
+            //Console.WriteLine(values.Name);
             //foreach (var item in values)
             //{
             //    Console.WriteLine(item);
             //}
 
-
-
+            var values = HttpRequester.Get<Card>("https://api-cert.payeezy.com" + "/v1/securitytokens?apikey=y6pWAJNyJyjGv66IsVuWnklkKUPFbb0a&js_security_key=js-6125e57ce5c46e10087a545b9e9d7354c23e1a1670d9e9c7&ta_token=NOIW&auth=true&callback=Payeezy.callback&type=FDToken&credit_card.type=visa&credit_card.cardholder_name=John%20Smith&credit_card.card_number=4788250000028291&credit_card.exp_date=1030&credit_card.cvv=123");
+            Console.WriteLine(values.Status);
+            Console.WriteLine(values.Results.Token.Value);
 
 
 

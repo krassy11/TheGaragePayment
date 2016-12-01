@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace TheGaragePaymentTest
 {
-    public class Card
+    public class Result
     {
-        private Result results;
+        private Token token;
 
-        public Card()
+        public Result()
         {
-            this.Results = new Result();
+            this.Token = new Token();
         }
         public string Status { get; set; }
 
-        public Result Results { get; set; }
+        public Token Token { get; set; }
+
     }
 }
