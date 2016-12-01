@@ -39,6 +39,11 @@ namespace WebApiTest.Controllers
             return response;
         }
 
+        public IHttpActionResult Add([FromBody]Animal name)
+        {
+            return this.Ok();
+        }
+
         // PUT api/values/5
         public void Put(int id, [FromBody]string value)
         {
