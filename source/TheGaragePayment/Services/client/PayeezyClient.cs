@@ -220,7 +220,8 @@ private PayeezyResponse getResponse(HttpWebResponse response)
 /**
  * Build GET URI
  * @param uri
- * @param queryParams
+ * @param 
+ * 
  * @return
  * @throws URISyntaxException
  */

@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using TheGarage.Services.Payment;
+using static TheGarage.Services.Payment.api.APIResourceConstants;
 
 namespace TheGaragePaymentTest
 {
@@ -76,6 +77,8 @@ namespace TheGaragePaymentTest
             //    Console.WriteLine(item);
             //}
 
+
+
             var values = HttpRequester.Get<Card>("https://api-cert.payeezy.com" + "/v1/securitytokens?apikey=y6pWAJNyJyjGv66IsVuWnklkKUPFbb0a&js_security_key=js-6125e57ce5c46e10087a545b9e9d7354c23e1a1670d9e9c7&ta_token=NOIW&auth=true&callback=Payeezy.callback&type=FDToken&credit_card.type=visa&credit_card.cardholder_name=John%20Smith&credit_card.card_number=4788250000028291&credit_card.exp_date=1030&credit_card.cvv=123");
             Console.WriteLine(values.Status);
             Console.WriteLine(values.Result.Token.Value);
@@ -104,8 +107,13 @@ namespace TheGaragePaymentTest
 
             };
 
+            Dictionary<string, string> requestHeaderMap = new Dictionary<string, string>();
+            requestHeaderMap.Add(SecurityConstants.APIKEY, "y6pWAJNyJyjGv66IsVuWnklkKUPFbb0a");
+            requestHeaderMap.Add(SecurityConstants.TOKEN, "fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6");
+            requestHeaderMap.Add(SecurityConstants.AUTHORIZE, "YWI2MjFkMzVhOWVhMTkzZTZlYjExYzYxMGFhZWM1ZWY1NWQ3NDgwNTA1YmNhZTM0ZmNmM2Q1MjkxMzVmNDMzZA");
+            requestHeaderMap.Add(SecurityConstants.TIMESTAMP, "1480621081859");
 
-            var responsePostValue = HttpRequester.Post<PurchaseResponse>("https://api-cert.payeezy.com/v1/transactions", data);
+            var responsePostValue = HttpRequester.Post<PurchaseResponse>("https://api-cert.payeezy.com/v1/transactions", data, requestHeaderMap);
             Console.WriteLine(responsePostValue.Method);
 
 

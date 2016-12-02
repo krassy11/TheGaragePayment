@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using static TheGarage.Services.Payment.api.APIResourceConstants;
 
 namespace TheGarage.Services.Payment
 {
@@ -61,15 +62,28 @@ namespace TheGarage.Services.Payment
             request.GetResponse();
         }
 
-        public static T Post<T>(string resourceUrl, object data)
+        public static T Post<T>(string resourceUrl, object data, Dictionary<string, string> requestHeaderMap)
         {
             var request = WebRequest.Create(resourceUrl) as HttpWebRequest;
             request.ContentType = "application/json";
             request.Method = "POST";
-            request.Headers.Add("apikey", "y6pWAJNyJyjGv66IsVuWnklkKUPFbb0a");
-            request.Headers.Add("Authorization", "YWI2MjFkMzVhOWVhMTkzZTZlYjExYzYxMGFhZWM1ZWY1NWQ3NDgwNTA1YmNhZTM0ZmNmM2Q1MjkxMzVmNDMzZA==");
-            request.Headers.Add("token", "fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6");
-            request.Headers.Add("timestamp", "1480621081859");
+            //request.Headers.Add("apikey", "y6pWAJNyJyjGv66IsVuWnklkKUPFbb0a");
+            //request.Headers.Add("Authorization", "YWI2MjFkMzVhOWVhMTkzZTZlYjExYzYxMGFhZWM1ZWY1NWQ3NDgwNTA1YmNhZTM0ZmNmM2Q1MjkxMzVmNDMzZA==");
+            //request.Headers.Add("token", "fdoa-a480ce8951daa73262734cf102641994c1e55e7cdf4c02b6");
+            //request.Headers.Add("timestamp", "1480621081859");
+            foreach (var requestHeader in requestHeaderMap)
+            {
+                //    uriBuilder.setScheme("https");
+                //    Set<string> keySet = queryParams.keySet();
+                //    Iterator<string> iterator = keySet.iterator();
+                //    while (iterator.hasNext())
+                //    {
+                //        string key = iterator.next();
+                //        uriBuilder.setParameter(key, queryParams.get(key));
+                //    }
+
+                request.Headers.Add(requestHeader.Key, requestHeader.Value);
+            }
 
             var jsonData = JsonConvert.SerializeObject(data);
 
